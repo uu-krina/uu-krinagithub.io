@@ -1,0 +1,504 @@
+@charset "utf-8";
+/* @media screen and (max-width: 768px)  横幅768pxまでできようします.スマホ基準値 */
+
+
+/**/
+/*ピクセル とは、デジタル画像や画面などを構成する最小単位である、色のついた微細な点のこと。*/
+/*1ピクセルは約0.026458333ミリメートルです*/
+/*paddingはborderの内側に余白を作る。marginはborderの外側に余白を作る。*/
+/*「margin:0; padding:0;」の表記はブラウザの初期の設定を一度リセットするためのものです。*/
+
+/*-------------------------------------------------------------------------
+font設定
+-------------------------------------------------------------------------*/
+body {
+    font-family: 'Noto Sans JP', "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #333;
+}
+
+label, input, textarea, select, button {
+    cursor: pointer;
+}
+/*-------------------------------------------------------------------------
+余分な余白を削除.初期化
+-------------------------------------------------------------------------*/
+*{ 
+    padding: 0;
+    margin: 0;
+}
+
+/*-------------------------------------------------------------------------
+section
+-------------------------------------------------------------------------*/
+/**/
+.section {
+    padding: 30px 15px;
+}
+.section.section-secound {
+    background-color: #efefef;
+}
+.section-headline {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    background: linear-gradient(transparent 40%, #ff99ab 70%);
+    margin: 0 0 40px; /*top rightleft bot*/
+ }
+.section-headline-second {
+    text-align: left;
+    font-size: 40px;
+}
+
+.section-button {
+    margin-top: 40px;
+    text-align: center;
+}
+
+
+/* スマホ
+@media screen and (max-width: 768px) {
+    .section {
+        padding: 20px 10px;
+    }
+    .section-headline {
+        font-size: 30px;
+        margin: 0 0 20px;
+    }
+    .section-button {   
+        margin: 20px 0 0;
+    }     
+} */
+/*-------------------------------------------------------------------------
+hero
+-------------------------------------------------------------------------*/
+.hero {
+    width: 100vw; /*vw:全画面いっぱい表示*/
+    height: 100vh;/* nh:全画面いっぱい表示*/
+    position: relative;
+    overflow: hidden;  /*要素からはみ出た部分をカットする */  
+}
+
+.hero > strong {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 60px;
+    color: #333;
+    font-weight: bold;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+.hero > video {
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    height: auto;
+}
+
+/* スマホ
+@media screen and (max-width: 768px) {
+    .hero > strong {
+        font-size: 30px;
+    }
+} */
+
+/*-------------------------------------------------------------------------
+header
+-------------------------------------------------------------------------*/
+/**/
+.header {
+    width: 100%; /*横幅いっぱいにひろげる*/
+    display: flex; /*横に並べる*/
+    justify-content: space-between; /*要素が左と右による*/
+    align-items: center; /*縦の軸をそろえる*/
+    padding: 0 15px; /*左右に余白を作る*/
+    position: fixed; /*他の要素と関係なく常に固定*/
+    z-index: 10;/*他の要素よりも1番上にある*/
+    top: 0;/**/
+    left: 0;/**/
+}
+.header-logo {
+    margin: 10px;
+    padding: 10px;
+    color: #333;
+    font-size: 30px;
+}
+.header-logo > a {
+    display: block;
+}
+/* .header-nav {
+    
+} */
+.header-navlist {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-navitem {
+    margin: 10px;
+    padding: 10px;
+    color: #333;
+    font-size: 20px;
+    display: flex; /*横並びにする*/
+    justify-content: space-around; /*均等*/
+    list-style-type: none; /*ぽっち削除*/
+}
+.header-navitem > a {
+    display: flex;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.25s;
+}
+.header-navitem > a:hover {
+    border-bottom: 2px solid #333;
+}    
+
+/* スマホ
+@media screen and (max-width: 768px) {
+    .header {
+        font-size: 12px;
+}
+} */
+
+/*-------------------------------------------------------------------------
+grid
+-------------------------------------------------------------------------*/
+/**/
+.grid {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center; /*display: flex;がつく要素を中央にそろえる*/
+    justify-content: center ;
+}
+.grid-item {
+    list-style: none;
+
+}
+.grid-col-2 > .grid-item {
+    width: 50%;
+}
+.grid-col-3 > .grid-item {
+    width: 33.3%;
+}
+.grid-col-4 > .grid-item {
+    width: 25%;
+}
+
+/* スマホ
+@media screen and (max-width: 768px) {
+    .grid {
+        display: block;
+    }
+}
+.grid-col-2 > .grid-item ,
+.grid-col-3 > .grid-item,
+.grid-col-4 > .grid-item {
+    width: 100%;
+    margin: 20px;
+} */
+
+/*-------------------------------------------------------------------------
+about
+-------------------------------------------------------------------------*/
+/**/
+.about {
+    margin: 0;
+    display: flex; /*要素横へ並べる並び*/
+    background-color: #999;
+}
+.about-image {
+    max-width: 40%;
+    height: auto;
+} 
+
+.about-caption {
+    padding-left: 15px;
+}
+.about-headline {
+    margin: 0 0 30px;
+    font-size: 30px;
+}
+.about-details > h3 {
+    font-size: 20px;
+}
+.about-description {
+    font-size: 20px;
+}
+    .about-button  {
+    margin-top: 100px;
+    text-align: center;
+}
+
+/* スマホ
+@media screen and (max-width: 768px) {
+    .about {
+        display: block;
+    }
+    .about-image {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+    .about-headline {
+        font-size: 20px;
+        text-align: center;
+    }
+} */
+
+
+/*-------------------------------------------------------------------------
+ card blog
+-------------------------------------------------------------------------*/
+/**/
+.card {
+    padding: 0 10px;    
+}
+.card-link {
+    display: block;
+    color: #333;
+    text-decoration: none; 
+    position: relative;
+}
+.card-link:hover {
+    background-color: #eee;
+    transition: background-color 0.25s; /*プロパティが変化するまでの時間を設定。アニメーション作るときに便利なプロパティ*/
+}
+.card-label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #999;
+    color: #fff;
+    display: block;
+    padding: 5px 10px;
+    font-size: 12px;
+
+}
+.card-img {
+    width: 100%;
+    height: auto; /*横幅に対して、高さを守ってねのauto*/
+}
+
+.card-info {
+    padding: 5px 10px;
+}
+.card-headline {
+    margin: 0;
+}
+.card-description {
+    margin: 0;
+}   
+.avator {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: start;
+    padding: 10px;
+}
+.avator-name {
+    font-weight: bold;
+    padding-left: 15px;
+}
+.avator-img {
+    margin: 0;
+    border-radius: 5px;
+}
+
+.button {
+    border: 0;
+    display: inline-block; /*インライン要素、ブロックライン要素でもある*/
+    color: white;
+    font-weight: bold;
+    background-color: #333;
+    text-align: center;
+    padding: 15px 60px;
+    text-decoration: none;
+    border-radius: 5px; /*外側外丸める*/
+    box-shadow: 5px  5px 0 #bbb; /*影　はみ出しエリア　横、縦の順番、3つ目はぼかし*/
+    transition: box-shadow 0.25s;
+}
+.button:hover {
+    box-shadow: 0 0 0 #bbb;
+}
+.button.button-submission {
+    background: #333;
+}
+.button-second {
+    border: 0;
+    display: inline-block; /*インライン要素、ブロックライン要素でもある*/
+    color: white;
+    font-weight: bold;
+    background-color: #333;
+    text-align: center;
+    padding: 15px 60px;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 5px  5px 0 #bbb; /*影　はみ出しエリア　横、縦の順番、3つ目はぼかし*/
+    transition: box-shadow 0.25s;
+}
+
+/*-------------------------------------------------------------------------
+contacto   .select, .input, .radio, .textarea
+-------------------------------------------------------------------------*/
+.select {
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    min-width: 520px;
+}
+.input {
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    min-width: 500px;
+}
+.radio {
+    margin: 0 10px;
+}
+.textarea {
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    min-width: 500px;
+    min-height: 100px;
+}
+
+/* スマホ
+@media screen and (max-width: 768px) {
+    .select 
+    .input
+    .textarea{
+        min-width: auto;
+        width: 100%;
+    }
+} */
+
+/*-------------------------------------------------------------------------
+form
+-------------------------------------------------------------------------*/
+/* form {} */
+.form-table {
+    margin: 0 auto;
+}
+/* .form-table tr */
+.form-table th {
+    padding: 10px;
+    text-align: left;
+}
+.form-table td {
+    padding: 10px;
+}
+.form-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* スマホ
+@media screen and (max-width: 768px) {
+    .form-table 
+    .form-table tr
+    .form-table th
+    .form-table td{
+        display: block;
+    }
+} */
+
+/*-------------------------------------------------------------------------
+works
+-------------------------------------------------------------------------*/
+/* */
+/* .works {
+    margin: 40px 0;
+    padding: 20px;
+    text-align: center;
+}
+.works > img {
+    margin: 0 15px;
+} */
+
+/* スマホ
+@media screen and (max-width: 768px) {
+    .works {
+        margin: 20px 0;
+        padding: 10px;
+    }
+    .works >img {
+        width: 100px;
+        margin: 5px;
+    }
+} */
+
+/*-------------------------------------------------------------------------
+works
+-------------------------------------------------------------------------*/
+/* */
+.footer {
+    padding: 30px 15px;
+    background-color: #333;
+    color: #fff;
+}
+.footer-headline{
+    color: #fff;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    margin: 0 0 40px; /*top rightleft bot*/
+}
+
+.footer-map {
+    margin: 0;
+    padding: 40px 15px;
+    display: flex;
+    align-items: center; /*;*/
+    justify-content: center;
+}
+.footer-map > iframe {
+    width: 60%;
+}
+.footer-mapinfo {
+    width: 40%;
+    padding: 15px;
+}
+.footer-maplogo {
+    font-size: 25px;
+    font-weight: bold;
+}
+.footer-mapaddress {
+    font-style: normal;
+}
+.footer-mapaddress > a {
+    color: #fff;
+}
+.footer-line {
+    border-color: #444;
+}
+.footer-copy {
+    display: block;
+    text-align: center;
+    padding: 10px;
+}
+
+/* スマホ
+@media screen and (max-width: 768px) {
+    .footer-map {
+        padding: 15px;
+        display: block;
+    }
+    .footer-map > iframe {
+        width: 100px;
+        height: 200px;
+    }
+    .footer-mapinfo {
+        width: 100px;
+        text-align: center;
+    }
+} */
